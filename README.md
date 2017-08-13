@@ -18,7 +18,7 @@ Note:
 
 App works on only in portrait mode.
 
-Demo:
+# Demo:
 
-![ios_tip_calculator](https://user-images.githubusercontent.com/2319181/29254267-a5426a44-8046-11e7-99e8-019e728fc94b.gif)
+![ios_tip_calculator](https://user-images.githubusercontent.com/2319181/29254303-7ea899a2-8047-11e7-9aa5-bfb32a2b5994.gif)
 
