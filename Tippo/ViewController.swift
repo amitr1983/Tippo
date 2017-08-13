@@ -28,11 +28,13 @@ class ViewController: UIViewController {
     
     let defaults:UserDefaults = UserDefaults.standard
     
+    // Default value for slider
     var currentValue = 1
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         billField.becomeFirstResponder()
         setLastbill()
         setdefaultTipsettings()
@@ -48,14 +50,15 @@ class ViewController: UIViewController {
         view.endEditing(true)
     }
     
+    //Calculator tip when person slider changes
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         currentValue = Int(sender.value)
         personSlider.value = Float(currentValue)
         personCountLabel.text = "\(currentValue)"
         tipCalculate(sender)
-        
     }
     
+    //Calculate tip on the basis of user output
     @IBAction func tipCalculate(_ sender: Any!) {
         let tipPercentage=[0.18,0.20,0.25]
         let perPerson = Double(personSlider.value)
@@ -70,9 +73,15 @@ class ViewController: UIViewController {
         savelastBill(bill: bill )
     }
     
+    // Set value of past bill to Bill field
     func setLastbill(){
-        let previousBill = defaults.value(forKey: "pastBill") as! Double
-        billField.text = "\(previousBill)"
+        if defaults.value(forKey: "pastBill") != nil {
+            let previousBill = defaults.value(forKey: "pastBill") as! Double
+            billField.text = "\(previousBill)"
+        } else {
+            print("Doesn’t have a default past bill value")
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -100,14 +109,19 @@ class ViewController: UIViewController {
         super.viewDidDisappear(animated)
         print("view did disappear")
     }
-    
+
     func savelastBill(bill: Double){
         defaults.set(bill, forKey: "pastBill")
     }
     
     func setdefaultTipsettings() {
-        let defaultTipIndex = defaults.value(forKey: "tipPercentageIndex")!
-        option.selectedSegmentIndex=defaultTipIndex as! Int
+        
+        if defaults.value(forKey: "tipPercentageIndex") != nil {
+            let defaultTipIndex = defaults.value(forKey: "tipPercentageIndex")!
+            option.selectedSegmentIndex=defaultTipIndex as! Int
+        } else {
+            print("Doesn’t have a default tip settings.")
+        }
     }
 }
 

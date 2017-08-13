@@ -18,6 +18,8 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Change color of back button
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         setdefaultTipsettings()
         // Do any additional setup after loading the view.
     }
@@ -37,10 +39,14 @@ class SettingsViewController: UIViewController {
         defaults.set(tipPercentageIndex, forKey: "tipPercentageIndex")
 
     }
-    
+
     func setdefaultTipsettings() {
-        let defaultTipIndex = defaults.value(forKey: "tipPercentageIndex")!
-        tipSettingSegment.selectedSegmentIndex=defaultTipIndex as! Int
+        if defaults.value(forKey: "tipPercentageIndex") != nil {
+            let defaultTipIndex = defaults.value(forKey: "tipPercentageIndex")!
+            tipSettingSegment.selectedSegmentIndex=defaultTipIndex as! Int
+        } else {
+            print("Doesn’t have a default tip settings.")
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -48,6 +54,5 @@ class SettingsViewController: UIViewController {
         setdefaultTipsettings()
         print("view did appear")
     }
-    
 
 }
