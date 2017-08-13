@@ -17,3 +17,8 @@ Completed User Stories:
 Note: 
 
 App works on only in portrait mode.
+
+Demo:
+
+![ios_tip_calculator](https://user-images.githubusercontent.com/2319181/29254267-a5426a44-8046-11e7-99e8-019e728fc94b.gif)
+
