@@ -43,10 +43,6 @@ As part of your pre-work submission, please reflect on the app and answer the fo
 In my opinion, Outlet and Action are simple keywords used by Interface builder.  Outlet is a declaration of UI object and provide a reference to UI. Eg. You create a textfield then you need to create an outlet in order to declare it. On the other hand action tell the UI which method to call. Eg. Get text from textfield. 
 Interface build created a XML under the hood and Outlet and Action are defender under connections..
 
-Question 2: "Swift uses [Automatic Reference Counting](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html#//apple_ref/doc/uid/TP40014097-CH20-ID49) (ARC), which is not a garbage collector, to manage memory. Can you explain how you can get a strong reference cycle for closures? (There's a section explaining this concept in the link, how would you summarize as simply as possible?)"
-
-
-
 
 ## License
 
