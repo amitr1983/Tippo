@@ -28,7 +28,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![Walkthrough of ios_tip_calculator](https://user-images.githubusercontent.com/2319181/29254303-7ea899a2-8047-11e7-9aa5-bfb32a2b5994.gif)
+![Walkthrough of ios_tip_calculator](https://github.com/amitr1983/Tippo/blob/master/screenshot/ios_tip_calculator.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
