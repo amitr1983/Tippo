@@ -34,11 +34,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        billField.becomeFirstResponder()
+    
         setLastbill()
         setdefaultTipsettings()
         tipCalculate(nil)
+        self.view.backgroundColor=UIColor.white
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,10 +66,13 @@ class ViewController: UIViewController {
         let tip = bill * tipPercentage[option.selectedSegmentIndex]
         let billtotal=bill+tip
         let perPersonTotal=(billtotal/perPerson)
+        let tipPerPerson=tip/perPerson
+        let locale=setdefaultLocale()
+        Formatter.currency.locale = Locale(identifier: "\(locale)")
         
-        tiplabel.text=String(format: "$%.2f", tip/perPerson)
-        totallabel.text=String(format: "$%.2f", perPersonTotal)
-        total.text=String(format: "$%.2f", billtotal)
+        tiplabel.text=tipPerPerson.currency
+        totallabel.text=perPersonTotal.currency
+        total.text=billtotal.currency
         savelastBill(bill: bill )
     }
     
@@ -86,6 +89,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        billField.becomeFirstResponder()
         setLastbill()
         setdefaultTipsettings()
         tipCalculate(nil)
@@ -94,6 +98,7 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        billField.becomeFirstResponder()
         setLastbill()
         setdefaultTipsettings()
         tipCalculate(nil)
@@ -122,6 +127,33 @@ class ViewController: UIViewController {
         } else {
             print("Doesn’t have a default tip settings.")
         }
+    }
+    
+    func setdefaultLocale()->String {
+        var defaultLocale: String
+        if defaults.value(forKey: "locale") != nil {
+            defaultLocale = defaults.value(forKey: "locale")! as! String
+        } else {
+            defaultLocale = "en_US"
+        }
+        return defaultLocale
+    }
+}
+
+extension NumberFormatter {
+    convenience init(style: Style) {
+        self.init()
+        numberStyle = style
+    }
+}
+
+extension Formatter {
+    static let currency = NumberFormatter(style: .currency)
+}
+
+extension FloatingPoint {
+    var currency: String {
+        return Formatter.currency.string(for: self) ?? ""
     }
 }
 

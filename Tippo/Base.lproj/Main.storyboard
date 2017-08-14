@@ -200,13 +200,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select default settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEC-0C-AJe">
-                                <rect key="frame" x="94.666666666666686" y="114" width="225" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select default tip settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEC-0C-AJe">
+                                <rect key="frame" x="82.666666666666686" y="114" width="249" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hd7-ga-xh3">
+                            <segmentedControl opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hd7-ga-xh3">
                                 <rect key="frame" x="96" y="179" width="221.66666666666669" height="29"/>
                                 <segments>
                                     <segment title="18"/>
@@ -215,23 +215,48 @@
                                 </segments>
                                 <color key="tintColor" red="0.42196783423423767" green="0.77872353792190552" blue="0.97931057214736938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="defaultTipSlider:" destination="S2m-0V-QHO" eventType="valueChanged" id="CEq-KU-TgW"/>
+                                    <action selector="defaultTipSegment:" destination="S2m-0V-QHO" eventType="valueChanged" id="oAq-Sz-chi"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select default Locale " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFq-vX-1yX">
+                                <rect key="frame" x="97.666666666666686" y="251" width="218" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="w6T-yf-Lka">
+                                <rect key="frame" x="98" y="308" width="218" height="29"/>
+                                <segments>
+                                    <segment title="US"/>
+                                    <segment title="UK"/>
+                                    <segment title="FR"/>
+                                </segments>
+                                <color key="tintColor" red="0.4219678342" green="0.77872353790000004" blue="0.97931057210000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="defaultLocale:" destination="S2m-0V-QHO" eventType="valueChanged" id="N2r-zx-Gvh"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="CFq-vX-1yX" firstAttribute="centerX" secondItem="HEC-0C-AJe" secondAttribute="centerX" id="6nh-au-SgV"/>
                             <constraint firstItem="HEC-0C-AJe" firstAttribute="top" secondItem="iV2-HW-z9j" secondAttribute="bottom" constant="50" id="7fq-3q-AAl"/>
                             <constraint firstItem="hd7-ga-xh3" firstAttribute="top" secondItem="HEC-0C-AJe" secondAttribute="bottom" constant="44" id="Jmk-44-uS9"/>
                             <constraint firstItem="HEC-0C-AJe" firstAttribute="centerX" secondItem="hd7-ga-xh3" secondAttribute="centerX" id="Lsc-I6-NHe"/>
                             <constraint firstItem="HEC-0C-AJe" firstAttribute="centerX" secondItem="pM3-9I-42E" secondAttribute="centerX" id="NHo-uw-gSH"/>
+                            <constraint firstItem="w6T-yf-Lka" firstAttribute="leading" secondItem="pM3-9I-42E" secondAttribute="leadingMargin" constant="78" id="PJV-4a-8N6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="w6T-yf-Lka" secondAttribute="trailing" constant="78" id="QbD-CL-WYW"/>
                             <constraint firstItem="hd7-ga-xh3" firstAttribute="leading" secondItem="pM3-9I-42E" secondAttribute="leadingMargin" constant="76" id="Sty-dF-fyZ"/>
+                            <constraint firstItem="w6T-yf-Lka" firstAttribute="top" secondItem="CFq-vX-1yX" secondAttribute="bottom" constant="36" id="miy-Dd-1zg"/>
+                            <constraint firstItem="CFq-vX-1yX" firstAttribute="top" secondItem="hd7-ga-xh3" secondAttribute="bottom" constant="44" id="rpb-dW-Cdq"/>
+                            <constraint firstItem="CFq-vX-1yX" firstAttribute="centerX" secondItem="w6T-yf-Lka" secondAttribute="centerX" id="vq7-ge-tl7"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="gzO-8h-reg" appends="YES" id="9l8-ZI-Vee"/>
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="localeSettingSegment" destination="w6T-yf-Lka" id="Gd1-tZ-Cbj"/>
                         <outlet property="tipSettingSegment" destination="hd7-ga-xh3" id="JjV-Tn-dZw"/>
                     </connections>
                 </viewController>
