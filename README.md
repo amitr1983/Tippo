@@ -23,6 +23,8 @@ The following **additional** features are implemented:
 
 - [x] Remember the Bill amount & default Tip percentage at App start.
 - [x] Consistent behaviour on both Main & settings screen
+- [x] Fixed Autolayout. Its showing correctly across devices (Portrait) 
+- [x] Added Per Person slider and deviding bill across group
 
 ## Video Walkthrough 
 
@@ -40,8 +42,8 @@ As part of your pre-work submission, please reflect on the app and answer the fo
 
 **Answer:** I’m very impressed by iOS App development platform so far. Its very exciting to see that we don’t need to reinvent the wheel for anything and everything is ready to use given that we understand the platform thoroughly and know how to use any method and why? 
 
-In my opinion, Outlet and Action are simple keywords used by Interface builder.  Outlet is a declaration of UI object and provide a reference to UI. Eg. You create a textfield then you need to create an outlet in order to declare it. On the other hand action tell the UI which method to call. Eg. Get text from textfield. 
-Interface build created a XML under the hood and Outlet and Action are defender under connections..
+In my opinion, Outlet and Action are simple keywords used by Interface builder.  Outlet is a declaration of UI object and provide a reference to UI components. Eg. You create a textfield then you need to create an outlet in order to link it to this textfield. On the other hand action tell the UI which method to call. Eg. Get text from textfield. 
+Interface builder creates a XML under the hood and Outlet and Action are defender under connections. Whenever user create/edit an outlet or action, it updates the xml files and set the correct attribute for Outlet and Action.
 
 Question 2: "Swift uses [Automatic Reference Counting](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html#//apple_ref/doc/uid/TP40014097-CH20-ID49) (ARC), which is not a garbage collector, to manage memory. Can you explain how you can get a strong reference cycle for closures? (There's a section explaining this concept in the link, how would you summarize as simply as possible?)"
 
