@@ -43,6 +43,10 @@ As part of your pre-work submission, please reflect on the app and answer the fo
 In my opinion, Outlet and Action are simple keywords used by Interface builder.  Outlet is a declaration of UI object and provide a reference to UI. Eg. You create a textfield then you need to create an outlet in order to declare it. On the other hand action tell the UI which method to call. Eg. Get text from textfield. 
 Interface build created a XML under the hood and Outlet and Action are defender under connections..
 
+Question 2: "Swift uses [Automatic Reference Counting](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html#//apple_ref/doc/uid/TP40014097-CH20-ID49) (ARC), which is not a garbage collector, to manage memory. Can you explain how you can get a strong reference cycle for closures? (There's a section explaining this concept in the link, how would you summarize as simply as possible?)"
+
+**Answer:** Before explaining how to get a strong reference cycle for closure, I would like to explain what is strong reference cycle. Strong reference is a type of reference which protects the object from getting deallocated from automatic reference count (ARC).
+We can get a strong reference cycle for closures by assigning it to class property and closure capture the instance. This capture happens because closure are reference type. Assigning a closure to the property, assign a reference to the closure. This create two strong reference which prevent deallocation from ARC. Capture list is a solution to resolve that. 
 
 ## License
 
