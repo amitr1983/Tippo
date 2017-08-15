@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     let defaults:UserDefaults = UserDefaults.standard
     
     // Default value for slider
-    var currentValue = 1
+    var currentValue: Int = 0
     
 
     override func viewDidLoad() {
@@ -62,7 +62,7 @@ class ViewController: UIViewController {
     @IBAction func tipCalculate(_ sender: Any!) {
         let tipPercentage=[0.18,0.20,0.25]
         let perPerson = Double(personSlider.value)
-        let bill = Double(billField.text!) ?? 0.0
+        let bill = Double(billField.text!) ?? 0.00
         let tip = bill * tipPercentage[option.selectedSegmentIndex]
         let billtotal=bill+tip
         let perPersonTotal=(billtotal/perPerson)
@@ -93,6 +93,7 @@ class ViewController: UIViewController {
         setLastbill()
         setdefaultTipsettings()
         tipCalculate(nil)
+        defaults.synchronize()
         print("view will appear")
     }
     
@@ -138,6 +139,7 @@ class ViewController: UIViewController {
         }
         return defaultLocale
     }
+
 }
 
 extension NumberFormatter {
