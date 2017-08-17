@@ -133,23 +133,32 @@ class SettingsViewController: UIViewController {
     
     func selectTheme() -> String{
         
-        var theme: String
+        var state: String
         if defaults.value(forKey: "theme") != nil {
-            theme = defaults.value(forKey: "theme")! as! String
+            state = defaults.value(forKey: "theme")! as! String
+
+            if (state=="isDark") {
+                theme.isOn=true
+            } else {
+                theme.isOn=false
+            }
 
         } else {
-            theme = "isLight"
+            state = "isLight"
+            theme.isOn=false
         }
-        print(theme)
-        return theme
+        print(state)
+        return state
     }
     
     @IBAction func themeChange(_ sender: UISwitch) {
         
         if theme.isOn {
             defaults.set("isDark", forKey: "theme")
+            theme.isOn=true
         } else {
             defaults.set("isLight", forKey: "theme")
+            theme.isOn=false
         }
         defaults.synchronize()
     }
