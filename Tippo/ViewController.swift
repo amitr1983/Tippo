@@ -148,7 +148,7 @@ class ViewController: UIViewController {
     
     @IBAction func animateStart(_ sender: UITextField) {
         UIView.animate(withDuration: 1.0, animations: {
-            self.billField.backgroundColor=UIColor(red: 252/255.0, green: 252/255.0, blue: 250/255.0, alpha: 1.0)
+            self.billField.backgroundColor=UIColor(red: 246/255.0, green: 246/255.0, blue: 246/255.0, alpha: 1.0)
             })
         
     }
