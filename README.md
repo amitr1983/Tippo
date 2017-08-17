@@ -4,7 +4,7 @@ Tippo is a tip calculator application for iOS.
 
 Submitted by: Amit Kumar Rajoriya
 
-Time spent: 4.5 hours spent in total
+Time spent: 13.5 hours spent in total
 
 ## User Stories
 
