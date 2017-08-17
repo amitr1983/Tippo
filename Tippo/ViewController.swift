@@ -9,7 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+
+
     @IBOutlet weak var total: UILabel!
     
     @IBOutlet weak var sliderValue: UISlider!
@@ -38,7 +39,7 @@ class ViewController: UIViewController {
         setLastbill()
         setdefaultTipsettings()
         tipCalculate(nil)
-        self.view.backgroundColor=UIColor.white
+        self.navigationController?.view.backgroundColor = UIColor.white
     }
 
     override func didReceiveMemoryWarning() {
@@ -89,7 +90,11 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        //handle nav controller recoloring
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
         billField.becomeFirstResponder()
+        themeColor()
         setLastbill()
         setdefaultTipsettings()
         tipCalculate(nil)
@@ -99,6 +104,7 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        themeColor()
         billField.becomeFirstResponder()
         setLastbill()
         setdefaultTipsettings()
@@ -139,7 +145,74 @@ class ViewController: UIViewController {
         }
         return defaultLocale
     }
+    
+    @IBAction func animateStart(_ sender: UITextField) {
+        UIView.animate(withDuration: 1.0, animations: {
+            self.billField.backgroundColor=UIColor(red: 246/255.0, green: 246/255.0, blue: 246/255.0, alpha: 1.0)
+            })
+        
+    }
+    
+    @IBAction func animateStop(_ sender: UITextField) {
+        billField.backgroundColor=UIColor.white
+    }
 
+    //Apply theme color
+    func themeColor() {
+
+        let theme=selectTheme()
+        
+        let lightBackground = UIColor.Theme.light.backgroundColor
+        let darkBackground = UIColor.Theme.dark.backgroundColor
+        let tintLightcolor = UIColor.Theme.light.tintColor
+        let tintDarkcolor = UIColor.Theme.dark.tintColor
+        let sliderLightBackground = UIColor.Theme.light.sliderColor
+        let sliderDarkBackground = UIColor.Theme.dark.sliderColor
+        
+        switch theme {
+        case "isLight":
+            let barColor = self.navigationController?.navigationBar
+            barColor?.barTintColor = tintLightcolor
+            barColor?.barTintColor = UIColor.Theme.light.tintColor
+            
+            barColor?.tintColor = lightBackground
+            barColor?.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+            view.backgroundColor = lightBackground
+            billField.backgroundColor=lightBackground
+            personCountLabel.textColor=tintLightcolor
+            option.backgroundColor=lightBackground
+            option.tintColor=tintLightcolor
+            sliderValue.tintColor=tintLightcolor
+            sliderValue.maximumTrackTintColor=sliderLightBackground
+        case "isDark":
+            let barColor = self.navigationController?.navigationBar
+            barColor?.barTintColor = darkBackground
+            barColor?.tintColor = lightBackground
+            barColor?.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+            view.backgroundColor = tintDarkcolor
+            billField.backgroundColor=lightBackground
+            personCountLabel.textColor=darkBackground
+            sliderValue.tintColor=sliderDarkBackground
+            sliderValue.maximumTrackTintColor=sliderLightBackground
+            option.backgroundColor=darkBackground
+            option.tintColor=UIColor.white
+        default:
+            break
+            
+        }
+    }
+    
+    func selectTheme() -> String{
+        
+        var theme: String
+        if defaults.value(forKey: "theme") != nil {
+            theme = defaults.value(forKey: "theme")! as! String
+        } else {
+            theme = "isLight"
+        }
+        print(theme)
+        return theme
+    }
 }
 
 extension NumberFormatter {
