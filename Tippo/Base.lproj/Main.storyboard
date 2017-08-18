@@ -166,6 +166,11 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Tip Calculator" id="dUe-GW-Cip">
+                        <barButtonItem key="leftBarButtonItem" systemItem="camera" id="wgT-Gl-9W1">
+                            <connections>
+                                <action selector="openCamera:" destination="BYZ-38-t0r" id="3ri-27-kkN"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="LrG-h9-p7U">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -175,6 +180,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="billField" destination="t75-yb-2Iq" id="ffV-Nv-lW0"/>
+                        <outlet property="camera" destination="wgT-Gl-9W1" id="Jtd-gL-VNH"/>
                         <outlet property="option" destination="P9M-aV-3nu" id="9My-tC-SNx"/>
                         <outlet property="personCountLabel" destination="Yaw-Bi-uMN" id="tOe-oM-fbc"/>
                         <outlet property="personSlider" destination="qCs-um-Qfw" id="xZX-nF-5Uq"/>

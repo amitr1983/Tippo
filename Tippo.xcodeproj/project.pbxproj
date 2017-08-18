@@ -151,7 +151,7 @@
 				TargetAttributes = {
 					28235A691F3D0E56004A4849 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = L7YB54A645;
+						DevelopmentTeam = 3FL2RN34Y9;
 						ProvisioningStyle = Automatic;
 					};
 					28235A7D1F3D0E56004A4849 = {
@@ -348,8 +348,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = L7YB54A645;
+				DEVELOPMENT_TEAM = 3FL2RN34Y9;
 				INFOPLIST_FILE = Tippo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mad-developer.Tippo";
@@ -362,8 +361,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = L7YB54A645;
+				DEVELOPMENT_TEAM = 3FL2RN34Y9;
 				INFOPLIST_FILE = Tippo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mad-developer.Tippo";
