@@ -21,6 +21,7 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
+- [x] **Customer can save take a picture** of receipt and save it for later use.
 - [x] Remember the Bill amount & default Tip percentage at App start.
 - [x] Consistent behaviour on both Main & settings screen
 - [x] Fixed Autolayout. Its showing correctly across devices (Portrait) 
