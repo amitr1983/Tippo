@@ -32,7 +32,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![Walkthrough of ios_tip_calculator](https://github.com/amitr1983/Tippo/blob/add_spinner/screenshot/ios_tip_calculator.gif)
+![Walkthrough of ios_tip_calculator](https://github.com/amitr1983/Tippo/blob/master/screenshot/ios_tip_calculator.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
