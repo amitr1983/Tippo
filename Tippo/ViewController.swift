@@ -8,8 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 
+    @IBOutlet weak var camera: UIBarButtonItem!
 
     @IBOutlet weak var total: UILabel!
     
@@ -28,6 +29,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var personCountLabel: UILabel!
     
     let defaults:UserDefaults = UserDefaults.standard
+    
+    let imagePicker = UIImagePickerController()
     
     // Default value for slider
     var currentValue: Int = 0
@@ -212,6 +215,37 @@ class ViewController: UIViewController {
         }
         print(theme)
         return theme
+    }
+    
+    @IBAction func openCamera(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .camera;
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let capturedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
+            UIImageWriteToSavedPhotosAlbum(capturedImage, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+            
+            dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            // we got back an error!
+            let alert = UIAlertController(title: "Save error", message: error.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert, animated: true)
+        } else {
+            let alert = UIAlertController(title: "Photo Saved", message: "Your Reciept has been Saved", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert, animated: true)
+        }
     }
 }
 
